@@ -1,5 +1,5 @@
 from dataset_property import DATASET_SIZE, LEFT_SIZE, RIGHT_SIZE
-NUM_NODES_SUB = 100
+NUM_NODES_SUB = 150
 COUNT_ONE = LEFT_SIZE
 DATASET_NAME = 'wikilens'
 RATIO = 1/10
@@ -61,6 +61,7 @@ if __name__ == '__main__':
     for j in range(RIGHT_SIZE):
         node_attr_file.write(str(j + LEFT_SIZE) + ',' + str(node_attr_classifier_right(node_degree_count_right[j])) + '\n')
     node_attr_file.close()
+    graph_file_open.close()
 
     new_edge_file = open("./" + DATASET_NAME + "/edge.txt", 'r')
     new_node_attr_file = open("./" + DATASET_NAME + "/node_attr.txt", 'r')
@@ -84,4 +85,8 @@ if __name__ == '__main__':
     ground_truth_file = open("./" + DATASET_NAME + "/ground_truth.txt", 'w')
     for i in range(NUM_NODES_SUB):
         ground_truth_file.write(str(match_from_sub_to_whole(i)) + ',' + str(i) + '\n')
+    new_edge_file.close()
+    new_node_attr_file.close()
+    sub_edge_file.close()
+    sub_node_attr_file.close()
 
